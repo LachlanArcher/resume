@@ -4,12 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Lachlan's Resume - Bootstrap 5 Showcase</title>
- 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Fixed Bootstrap CSS version -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
   
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
   <style>
-    
     @keyframes fadeInDown {
       from {
         opacity: 0;
@@ -35,7 +35,6 @@
 </head>
 <body>
 
-
 <button class="btn btn-primary position-fixed top-50 start-0 translate-middle-y" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSidebar" aria-controls="offcanvasSidebar" style="z-index: 1100;">
   <i class="bi bi-list"></i> Menu
 </button>
@@ -60,16 +59,10 @@
   </div>
 </div>
 
-
 <div class="container py-5 text-center bg-secondary text-white rounded shadow-sm">
   <h1 id="mainTitle" class="display-4 fw-bold fade-in-down">Lachlan's Resume</h1>
   <p class="lead mb-4">Welcome to my resume. Here I display all of my experience and accomplishments.</p>
-
-  <button id="scrollToTabs" class="btn btn-warning btn-lg" type="button">
-    Explore My Resume <i class="bi bi-arrow-down-circle ms-2"></i>
-  </button>
 </div>
-
 
 <ul class="nav nav-tabs justify-content-center mt-5" id="resumeTabs" role="tablist">
   <li class="nav-item" role="presentation">
@@ -89,10 +82,7 @@
   </li>
 </ul>
 
-
 <div class="tab-content mt-4 px-2 px-md-5">
-
-  
   <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="sports-tab">
     <div class="card shadow-sm mb-4">
       <div class="card-header bg-secondary text-white">
@@ -124,18 +114,14 @@
     </div>
   </div>
 
-
   <div class="tab-pane fade" id="menu1" role="tabpanel" aria-labelledby="education-tab">
     <h2 class="text-center text-secondary mb-4">My Education <i class="bi bi-backpack-fill"></i></h2>
-    
     <div id="educationCarousel" class="carousel slide shadow-sm rounded" data-bs-ride="carousel" style="max-width: 900px; margin: auto;">
-     
       <div class="carousel-indicators">
         <button type="button" data-bs-target="#educationCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Elementary School"></button>
         <button type="button" data-bs-target="#educationCarousel" data-bs-slide-to="1" aria-label="Middle School"></button>
         <button type="button" data-bs-target="#educationCarousel" data-bs-slide-to="2" aria-label="High School"></button>
       </div>
-      
       <div class="carousel-inner rounded">
         <div class="carousel-item active">
           <img src="https://imagescdn.homes.com/i2/lw9IPJa_rtGoRGmjeVSnWB-eDfJq4AcnXUGdqCvqBGY/117/ambrose-elementary-school-winchester-ma-primaryphoto.jpg?p=1" class="d-block w-100" alt="Elementary School" style="height: 400px; object-fit: cover;">
@@ -171,10 +157,8 @@
     </div>
   </div>
 
-
   <div class="tab-pane fade" id="other" role="tabpanel" aria-labelledby="other-tab">
     <h2 class="text-center text-secondary mb-3">Hometown <i class="bi bi-geo-alt-fill"></i></h2>
-
     <p class="text-center fs-4">
       <a href="#" id="popoverText" tabindex="0" class="text-decoration-none text-secondary" role="button" data-bs-toggle="popover" data-bs-trigger="focus" title="Winchester" data-bs-content="Winchester is a charming town known for its community spirit and scenic beauty.">
         Winchester <i class="bi bi-info-circle-fill"></i>
@@ -184,45 +168,37 @@
       <img src="https://www.winchester.us/ImageRepository/Document?documentID=6946" alt="Winchester Map" class="img-fluid rounded shadow" style="max-height: 350px;">
     </div>
     <div class="text-center">
-      
-      <button type="button" class="btn btn-secondary" id="tooltipBtn" data-bs-toggle="tooltip" data-bs-placement="top" title="Click me for fun!">
+      <button type="button" class="btn btn-secondary" id="tooltipBtn" data-bs-toggle="tooltip" data-bs-placement="top" title="Tooltip">
         Hover me for tooltip <i class="bi bi-emoji-smile-fill"></i>
       </button>
     </div>
   </div>
-
 </div>
 
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
-  
   const popoverTrigger = document.getElementById('popoverText');
   const popover = new bootstrap.Popover(popoverTrigger);
 
-  
   const tooltipTrigger = document.getElementById('tooltipBtn');
   const tooltip = new bootstrap.Tooltip(tooltipTrigger);
 
-  
-  document.getElementById('scrollToTabs').addEventListener('click', () => {
-    document.getElementById('resumeTabs').scrollIntoView({ behavior: 'smooth' });
-  });
+  // Removed this because there's no element with id scrollToTabs
+  // document.getElementById('scrollToTabs').addEventListener('click', () => {
+  //   document.getElementById('resumeTabs').scrollIntoView({ behavior: 'smooth' });
+  // });
 
- 
   const spinnerBtn = document.getElementById('loadSpinnerBtn');
   const spinnerContainer = document.getElementById('spinnerContainer');
 
   spinnerBtn.addEventListener('click', () => {
-   
     spinnerContainer.innerHTML = `
       <div class="spinner-border text-warning" role="status" aria-live="polite" aria-label="Loading">
         <span class="visually-hidden">Loading...</span>
       </div>
       <p class="mt-2">Loading data...</p>
     `;
-
 
     setTimeout(() => {
       spinnerContainer.innerHTML = `<p class="text-success fw-bold">Data loaded successfully!</p>`;
